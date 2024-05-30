@@ -108,6 +108,21 @@ class ContaCorrente(Conta):
         """
         
         
-# class Historico:
-#     def __init__(self):
-#         self._transacoes = []
+class Historico:
+    def __init__(self):
+        self._transacoes = []
+        
+    @property
+    def transacoes(self):
+        return self._transacoes
+    def adicionar_transao(self. transacao):
+        self._transacoes.append(
+            {
+                "tipo": transacao.__class__.__name__,
+                "valor": transacao.valor,
+                "data": datetime.now().strftime("%d/%m/%Y - %H:%M:%S"),
+            }
+        )
+        
+h1 = Historico()
+print(h1.transacoes)
