@@ -115,7 +115,7 @@ class Historico:
     @property
     def transacoes(self):
         return self._transacoes
-    def adicionar_transao(self. transacao):
+    def adicionar_transao(self, transacao):
         self._transacoes.append(
             {
                 "tipo": transacao.__class__.__name__,
@@ -124,5 +124,13 @@ class Historico:
             }
         )
         
-h1 = Historico()
-print(h1.transacoes)
+class Transacao(ABC):
+    @property
+    @abstractproperty
+    def valor(self):
+        pass
+    
+    @abstractclassmethod
+    def registrar(self, conta):
+        pass
+        
